@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefHeight="400.0" prefWidth="186.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Nombre :">
+               <VBox.margin>
+                  <Insets left="10.0" top="70.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombreTextField">
+               <VBox.margin>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Apellido :">
+               <VBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="apellidoTextField">
+               <VBox.margin>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Edad :">
+               <VBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="edadTextField">
+               <VBox.margin>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="btnAniadirPersona" mnemonicParsing="false" text="Añadir persona">
+               <VBox.margin>
+                  <Insets left="45.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <TableView fx:id="tablaPersonas" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn id="nombre" fx:id="columnaNombre" minWidth="50.0" prefWidth="140.0" maxWidth = "Infinity" resizable="true" text="Nombre" />
+          <TableColumn id="apellido" fx:id="columnaApellido" prefWidth="190.0" maxWidth = "Infinity" resizable="true" text="Apellido" />
+           <TableColumn id="edad" fx:id="columnaEdad" prefWidth="75.0" maxWidth = "Infinity" resizable="true" text="Edad" />
+        </columns>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="20.0" right="10.0" top="20.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+</BorderPane>
