@@ -12,7 +12,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador de la aplicación de gestión de personas.
+ */
 public class HelloController implements Initializable {
+
     private String errores = "";
     private Scene escenaAplicacion;
 
@@ -40,34 +44,44 @@ public class HelloController implements Initializable {
     @FXML
     private Button btnAniadirPersona;
 
-    public void aniadirPersona(ActionEvent actionEvent){
+    /**
+     * Método que se ejecuta al pulsar el botón "Añadir persona".
+     * Valida los campos de texto y añade una nueva persona a la tabla si son válidos.
+     *
+     * @param actionEvent evento de acción que se produce al pulsar el botón
+     */
+    public void aniadirPersona(ActionEvent actionEvent) {
         errores = "";
         escenaAplicacion = HelloApplication.getScene();
-        if(nombreTextField.getText().isEmpty()){
+        if (nombreTextField.getText().isEmpty()) {
             errores += "El campo nombre es obligatorio.\n";
         }
-        if(apellidoTextField.getText().isEmpty()){
+        if (apellidoTextField.getText().isEmpty()) {
             errores += "El campo apellidos es obligatorio.\n";
         }
-        if(edadTextField.getText().isEmpty()){
+        if (edadTextField.getText().isEmpty()) {
             errores += "El campo edad es obligatorio";
         } else {
-            try{
+            try {
                 Integer edad = Integer.parseInt(edadTextField.getText());
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 errores += "El campo edad tiene que ser númerico.\n";
             }
         }
-        if(errores.isEmpty()){
+        if (errores.isEmpty()) {
             aniadirPersonaTabla();
-        } else{
+        } else {
             alertaError();
         }
     }
 
+    /**
+     * Añade una nueva persona a la tabla de personas.
+     * Comprueba si la persona ya existe en la tabla antes de añadirla.
+     */
     private void aniadirPersonaTabla() {
         Personas p = new Personas(nombreTextField.getText(), apellidoTextField.getText(), Integer.parseInt(edadTextField.getText()));
-        if(!tablaPersonas.getItems().contains(p)){
+        if (!tablaPersonas.getItems().contains(p)) {
             tablaPersonas.getItems().add(p);
             alertaAniadirPersona();
         } else {
@@ -80,6 +94,9 @@ public class HelloController implements Initializable {
         }
     }
 
+    /**
+     * Muestra una alerta de error con los mensajes de error acumulados.
+     */
     private void alertaError() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.initOwner(escenaAplicacion.getWindow());
@@ -89,6 +106,9 @@ public class HelloController implements Initializable {
         alert.showAndWait();
     }
 
+    /**
+     * Muestra una alerta de información para confirmar que se ha añadido una persona correctamente.
+     */
     private void alertaAniadirPersona() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.initOwner(escenaAplicacion.getWindow());
@@ -98,6 +118,15 @@ public class HelloController implements Initializable {
         alert.showAndWait();
     }
 
+    /**
+     * Método que se ejecuta al inicializar el controlador.
+     * Configura las columnas de la tabla de personas y establece sus anchos.
+     * La parte de prefWifthProperty().bind(tabla.Personas.widthProperty().multiply(0.3))
+     * y demás es para que las columnas se redimensionen.
+     *
+     * @param url        URL del recurso que se está cargando
+     * @param resourceBundle recurso de configuración
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         columnaEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
