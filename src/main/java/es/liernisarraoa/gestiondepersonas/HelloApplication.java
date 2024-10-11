@@ -3,9 +3,11 @@ package es.liernisarraoa.gestiondepersonas;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class HelloApplication extends Application {
     private static Scene scene;
@@ -15,6 +17,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestionDePersona.fxml"));
         scene = new Scene(fxmlLoader.load(), 600, 500);
         stage.setTitle("Gestion de Personas");
+        stage.getIcons().add(new Image(String.valueOf(HelloApplication.class.getResource("/Imagenes/agenda.png"))));
         stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
@@ -27,4 +30,5 @@ public class HelloApplication extends Application {
     public static Scene getScene(){
         return scene;
     }
+    //Falta el icono
 }

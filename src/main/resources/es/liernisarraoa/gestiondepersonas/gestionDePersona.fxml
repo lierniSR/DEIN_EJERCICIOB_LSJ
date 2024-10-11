@@ -13,11 +13,11 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.liernisarraoa.gestiondepersonas.Controlador.HelloController">
    <left>
-      <VBox prefHeight="400.0" prefWidth="186.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="186.0">
          <children>
             <Label text="Nombre :">
                <VBox.margin>
-                  <Insets left="10.0" top="70.0" />
+                  <Insets left="10.0"/>
                </VBox.margin>
                <font>
                   <Font size="14.0" />
@@ -65,9 +65,9 @@
    <center>
       <TableView fx:id="tablaPersonas" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn id="nombre" fx:id="columnaNombre" minWidth="50.0" prefWidth="140.0" maxWidth = "Infinity" resizable="true" text="Nombre" />
-          <TableColumn id="apellido" fx:id="columnaApellido" prefWidth="190.0" maxWidth = "Infinity" resizable="true" text="Apellido" />
-           <TableColumn id="edad" fx:id="columnaEdad" prefWidth="75.0" maxWidth = "Infinity" resizable="true" text="Edad" />
+          <TableColumn id="nombre" fx:id="columnaNombre" minWidth="140.0" maxWidth = "Infinity" text="Nombre" />
+          <TableColumn id="apellido" fx:id="columnaApellido" minWidth="190.0" maxWidth = "Infinity" text="Apellido" />
+           <TableColumn id="edad" fx:id="columnaEdad" minWidth="75.0" maxWidth = "Infinity" text="Edad" />
         </columns>
          <opaqueInsets>
             <Insets />

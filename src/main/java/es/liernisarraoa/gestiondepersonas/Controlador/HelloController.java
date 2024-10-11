@@ -67,8 +67,17 @@ public class HelloController implements Initializable {
 
     private void aniadirPersonaTabla() {
         Personas p = new Personas(nombreTextField.getText(), apellidoTextField.getText(), Integer.parseInt(edadTextField.getText()));
-        tablaPersonas.getItems().add(p);
-        //alertaAniadirPersona();
+        if(!tablaPersonas.getItems().contains(p)){
+            tablaPersonas.getItems().add(p);
+            alertaAniadirPersona();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(escenaAplicacion.getWindow());
+            alert.setHeaderText(null);
+            alert.setTitle("Persona duplicada");
+            alert.setContentText("La persona no se puede añadir ya que existe en la tabla.");
+            alert.showAndWait();
+        }
     }
 
     private void alertaError() {
@@ -94,5 +103,8 @@ public class HelloController implements Initializable {
         columnaEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
         columnaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         columnaApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+        columnaNombre.prefWidthProperty().bind(tablaPersonas.widthProperty().multiply(0.3));
+        columnaApellido.prefWidthProperty().bind(tablaPersonas.widthProperty().multiply(0.4));
+        columnaEdad.prefWidthProperty().bind(tablaPersonas.widthProperty().multiply(0.2));
     }
 }

@@ -35,4 +35,16 @@ public class Personas {
     public void setEdad(Integer edad){
         this.edad = edad;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Personas)) {
+            return false;
+        }
+        Personas other = (Personas) obj;
+        return nombre.equals(other.nombre) && apellido.equals(other.apellido) && edad == other.edad;
+    }
 }
