@@ -14,6 +14,8 @@ import java.util.ResourceBundle;
 
 /**
  * Controlador de la aplicación de gestión de personas.
+ * @author Lierni
+ * @version 1.0
  */
 public class HelloController implements Initializable {
 
